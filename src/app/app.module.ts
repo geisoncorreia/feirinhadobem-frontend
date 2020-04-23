@@ -8,6 +8,8 @@ import { ClienteDetailsComponent } from './cliente/cliente-details/cliente-detai
 import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 import { EditClienteComponent } from './cliente/edit-cliente/edit-cliente.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -33,6 +35,9 @@ import { MatSelectModule } from '@angular/material/select';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
