@@ -36,7 +36,7 @@ export class ClienteService {
   }
 
   getClienteById(id: string): Observable<Cliente> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}${id}`;
     return this.http.get<Cliente>(url).pipe(
       tap(_ => console.log(`fetch cliente id=${id}`)),
       catchError(this.handleError<Cliente>(`getClienteById id=${id}`))
@@ -45,7 +45,7 @@ export class ClienteService {
 
   addCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(apiUrl, cliente, httpOptions).pipe(
-      tap((c: Cliente) => console.log(`add cliente w/ id=${c._id}`)),
+      tap((c: Cliente) => console.log(`add cliente w/ id=${c.id}`)),
       catchError(this.handleError<Cliente>('addCliente'))
     );
   }
