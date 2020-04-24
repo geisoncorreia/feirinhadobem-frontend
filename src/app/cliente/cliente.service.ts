@@ -51,7 +51,7 @@ export class ClienteService {
   }
 
   updateCliente(id: string, cliente: Cliente): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}${id}`;
     return this.http.put(url, cliente, httpOptions).pipe(
       tap(_ => console.log(`update cliente id=${id}`)),
       catchError(this.handleError<any>('updateCliente'))
@@ -59,7 +59,7 @@ export class ClienteService {
   }
 
   deleteCliente(id: string): Observable<Cliente> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}${id}`;
     return this.http.delete<Cliente>(url, httpOptions).pipe(
       tap(_ => console.log(`delete cliente id=${id}`)),
       catchError(this.handleError<Cliente>('deleteCliente'))
