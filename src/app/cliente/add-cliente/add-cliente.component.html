@@ -1,1 +1,42 @@
-<p>add-cliente works!</p>
+<div class="example-container mat-elevation-z8">
+    <h2>Novo Cliente</h2>
+    <div class="example-loading-shade"
+          *ngIf="isLoadingResults">
+      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    </div>
+    <div class="button-row">
+      <a mat-flat-button color="primary" [routerLink]="['/cliente']"><mat-icon>list</mat-icon></a>
+    </div>
+    <mat-card class="example-card">
+      <form [formGroup]="clienteForm" (ngSubmit)="onFormSubmit()">
+        <mat-form-field class="example-full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput placeholder="Nome" formControlName="nome"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('nome').valid && clienteForm.get('nome').touched">Informe o Nome</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Idade</mat-label>
+          <input matInput type="number" placeholder="Idade" formControlName="idade"
+                  [errorStateMatcher]="matcher">
+          <mat-error>
+            <span *ngIf="!clienteForm.get('idade').valid && clienteForm.get('idade').touched">Informe a Idade</span>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email"
+                    [errorStateMatcher]="matcher">
+            <mat-error>
+              <span *ngIf="!clienteForm.get('email').valid && clienteForm.get('email').touched">Informe o Email</span>
+            </mat-error>
+          </mat-form-field>
+        
+        <div class="button-row">
+          <button type="submit" [disabled]="!clienteForm.valid" mat-flat-button color="primary"><mat-icon>Salvar</mat-icon></button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
