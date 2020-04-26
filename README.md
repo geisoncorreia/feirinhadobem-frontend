@@ -10,5 +10,7 @@ API: https://github.com/geisoncorreia/feirinha-ecommerce-api
 
   ng serve
   
+  Link da App: http://localhost:4200/cliente
+  
 Obs: Para conseguir usar a aplicação suba a API antes. Siga os passo informados.
 
